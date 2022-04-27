@@ -1,4 +1,3 @@
-
 from app.models.base import session
 from app.repository.customer import CustomerRepository
 

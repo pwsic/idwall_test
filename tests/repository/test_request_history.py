@@ -13,12 +13,14 @@ class TestRepositoryRequestHistory:
         before_create = before_create.scalars().all()
         assert len(before_create) == 0
 
-        model = RequestHistoryModel(**{
-            'customer_id': fixture_customer.id,
-            'initial_date': datetime.now(),
-            'end_date': datetime.now(),
-            'status': 'init',
-        })
+        model = RequestHistoryModel(
+            **{
+                "customer_id": fixture_customer.id,
+                "initial_date": datetime.now(),
+                "end_date": datetime.now(),
+                "status": "init",
+            }
+        )
 
         repository = RequestHistoryRepository(session)
         request_history = repository.create(model)
