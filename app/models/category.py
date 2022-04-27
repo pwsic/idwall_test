@@ -1,9 +1,9 @@
-from sqlalchemy import Column, String, Float, DateTime
+from sqlalchemy import Column, DateTime, Float, String
 
 from app.models.base import Base
 
 
 class CategoryModel(Base):
-    __tablename__ = 'category'
+    __tablename__ = "category"
 
     name = Column(String, nullable=False)
