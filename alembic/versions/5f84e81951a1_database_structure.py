@@ -54,7 +54,7 @@ def upgrade():
         sa.Column("customer_id", sa.String(length=36), nullable=False),
         sa.Column("initial_date", sa.DateTime(), nullable=False),
         sa.Column("end_date", sa.DateTime(), nullable=False),
-        sa.Column("status", sa.DateTime(), nullable=False),
+        sa.Column("status", sa.String(), nullable=False),
         sa.ForeignKeyConstraint(
             ["customer_id"],
             ["customer.id"],
