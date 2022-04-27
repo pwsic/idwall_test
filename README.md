@@ -6,8 +6,12 @@
 
 ### Run `alembic upgrade heads`
 
-# Running project
+# Running API
 
-### `python app.py`
+### `make run-api`
 
 ## Enter `http://localhost:5000`
+
+# Running worker
+
+### In new terminal tab: `make run-worker`
