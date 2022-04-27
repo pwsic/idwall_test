@@ -1,7 +1,8 @@
 import pytest
 
 from app import create_app
-from app.models.base import Base
+from app.models.base import Base, session
+from app.models.customer import CustomerModel
 
 
 @pytest.fixture()
@@ -34,3 +35,12 @@ def client(app):
 @pytest.fixture()
 def runner(app):
     return app.test_cli_runner()
+
+
+@pytest.fixture()
+def fixture_customer():
+    customer = CustomerModel(name="flavinho flaveta")
+    session.add(customer)
+    session.commit()
+
+    return customer
