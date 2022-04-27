@@ -1,5 +1,7 @@
 alembic==1.7.7
+celery==5.2.6
 Flask==2.1.1
 flask-restx==0.5.1
 pytest==7.1.2
 PyYAML==6.0
+-e .

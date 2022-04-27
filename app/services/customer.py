@@ -1,4 +1,4 @@
-from app.api.history.exceptions import CustomerNotFoundException
+from app.common.exceptions import CustomerNotFoundException
 from app.repository.customer import CustomerRepository
 
 

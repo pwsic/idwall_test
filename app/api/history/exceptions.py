@@ -1,2 +1,0 @@
-class CustomerNotFoundException(Exception):
-    pass
