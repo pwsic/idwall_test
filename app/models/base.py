@@ -5,6 +5,8 @@ from sqlalchemy import Column, DateTime, Text, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
+import settings
+
 
 class Base(object):
     id = Column(Text(length=36), default=lambda: str(uuid4()), primary_key=True)
@@ -14,10 +16,7 @@ class Base(object):
         return f"<{self.__class__.__name__} {self.id}>"
 
 
-# TODO MOVE TO ENV
-# sqlalchemy_url = settings.get('sqlalchemy.url')
-sqlalchemy_url = "sqlite:///data.db"
-
+sqlalchemy_url = settings.get("sqlalchemy.url")
 engine = create_engine(sqlalchemy_url, convert_unicode=True)
 session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 

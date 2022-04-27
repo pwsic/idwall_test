@@ -1,0 +1,7 @@
+development:
+  sqlalchemy:
+    url: "sqlite:///data.db"
+
+testing:
+  sqlalchemy:
+    url: "sqlite:///:memory:"
