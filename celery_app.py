@@ -5,7 +5,6 @@ from kombu import Exchange, Queue
 
 import celeryconfig
 
-
 celery_app = Celery("worker")
 
 celery_app.config_from_object(celeryconfig)
