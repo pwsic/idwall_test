@@ -14,7 +14,11 @@
 
 # Running worker
 
-### In new terminal tab: `make run-worker`
+### In new terminal type: `make run-worker`
+
+# Running cron
+
+### In new terminal type `make run-cron`
 
 # Running tests
 
