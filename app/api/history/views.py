@@ -11,7 +11,7 @@ from app.services.customer import CustomerService
 from app.services.request_history import RequestHistoryService
 from app.tasks.history import track_history
 
-history_api = Namespace("history", "History")
+history_api = Namespace("history", "History API")
 
 resource_fields = history_api.model("Resource", history_post_schema)
 
@@ -24,7 +24,7 @@ class History(Resource):
         try:
             payload = request.json
             customer_service = CustomerService(session)
-            customer_service.get_customer_by_id(payload["id"])
+            customer_service.get_by_id(payload["id"])
 
             initial_date = datetime.strptime(payload["initialDate"], "%d/%m/%Y")
             end_date = datetime.strptime(payload["finalDate"], "%d/%m/%Y")

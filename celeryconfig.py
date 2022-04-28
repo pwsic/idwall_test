@@ -11,13 +11,10 @@ task_send_sent_event = True
 timezone = "UTC"
 task_annotations = {"*": {"default_retry_delay": 5}}
 
-# beat_schedule = {
-#     "run-temporizer-task": {
-#         "task": "app.tasks.temporizer.run_temporizer",
-#         "schedule": crontab(minute="*/1"),
-#     },
-#     "run-temporizer-follow-up-task": {
-#         "task": "app.tasks.temporizer_follow_up.run_temporizer_follow_up",
-#         "schedule": crontab(minute="*/5"),
-#     }
-# }
+beat_schedule = {
+    "run-temporizer-task": {
+        "task": "app.tasks.reprocess.reprocess",
+        # "schedule": crontab(minute="*/1"),
+        "schedule": 10.0,
+    },
+}

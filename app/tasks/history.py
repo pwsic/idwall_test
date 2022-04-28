@@ -26,7 +26,7 @@ def track_history(id_):
         classified_transactions = classifier_service.classify(transactions)
 
         report = report_service.create(classified_transactions, request_history.id)
-        response.update({'id': report.id})
+        response.update({"id": report.id})
     except (PartnerBankTimemoutException, Exception):
         status = {"status": "error"}
 

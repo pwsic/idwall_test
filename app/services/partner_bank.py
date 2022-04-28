@@ -13,14 +13,14 @@ def mock_success_response(customer_id):
                 "categoryName": "Serviços Automotivos",
                 "purchaseId": str(uuid4()),
                 "moneySpent": 150,
-                "purchaseDate": '25/12/2021',
+                "purchaseDate": "25/12/2021",
             },
             {
                 "categoryId": "224e56e6-0c88-4a3d-b05c-f349ebd5f187",
                 "categoryName": "Vestuário",
                 "purchaseId": str(uuid4()),
                 "moneySpent": 150,
-                "purchaseDate": '25/12/2021',
+                "purchaseDate": "25/12/2021",
             },
         ],
     }
@@ -32,7 +32,7 @@ def mock_success_response(customer_id):
                 "categoryName": "Categoria muito suspeita",
                 "purchaseId": str(uuid4()),
                 "moneySpent": 150,
-                "purchaseDate": '25/12/2021',
+                "purchaseDate": "25/12/2021",
             }
         )
 
