@@ -7,15 +7,15 @@ Create Date: 2022-04-27 22:02:36.312882
 """
 from datetime import datetime
 
-from alembic import op
 import sqlalchemy as sa
 
-
 # revision identifiers, used by Alembic.
-from sqlalchemy import table, String, DateTime
+from sqlalchemy import DateTime, String, table
 
-revision = 'c770dda9dc58'
-down_revision = 'eb581a2d3141'
+from alembic import op
+
+revision = "c770dda9dc58"
+down_revision = "eb581a2d3141"
 branch_labels = None
 depends_on = None
 

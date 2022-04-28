@@ -30,7 +30,9 @@ class TestTrackHistory:
 
     @patch.object(ReportService, "create")
     @patch.object(ClassifierService, "classify")
-    def test_history_should_work(self, mock_classify, mock_report_service, app, fixture_request_history):
+    def test_history_should_work(
+        self, mock_classify, mock_report_service, app, fixture_request_history
+    ):
         query = select(RequestHistoryModel).where(
             RequestHistoryModel.id == fixture_request_history.id
         )
@@ -43,7 +45,7 @@ class TestTrackHistory:
             mocky.return_value = mock_success_response(before_update.customer_id)
             result = track_history(fixture_request_history.id)
 
-        assert result['id'] is not None
+        assert result["id"] is not None
 
         after_update = session.execute(query)
         after_update = after_update.scalar_one_or_none()
@@ -54,7 +56,9 @@ class TestTrackHistory:
 
     @patch.object(ReportService, "create")
     @patch.object(ClassifierService, "classify")
-    def test_history_should_error(self, mock_classify, mock_report_service, app, fixture_request_history):
+    def test_history_should_error(
+        self, mock_classify, mock_report_service, app, fixture_request_history
+    ):
         query = select(RequestHistoryModel).where(
             RequestHistoryModel.id == fixture_request_history.id
         )

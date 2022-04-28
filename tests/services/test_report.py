@@ -1,42 +1,14 @@
-from datetime import datetime
-
 import pytest
 from sqlalchemy import select
 
+from app.common.exceptions import ReportNotFoundException
 from app.models.base import session
-from app.models.category import CategoryModel
 from app.models.report import ReportModel
-from app.models.request_history import RequestHistoryModel
-
 from app.services.partner_bank import mock_success_response
 from app.services.report import ReportService
 
 
 class TestReportService:
-
-    @pytest.fixture()
-    def fixture_category(self):
-        model = CategoryModel(
-            id="3f1dbe6b-fddd-40e6-bfc4-aaf6e6cda430", name="Suspeitosa"
-        )
-        session.add(model)
-        session.commit()
-
-        return model
-
-    @pytest.fixture()
-    def fixture_request_history(self, fixture_customer):
-        model = RequestHistoryModel(
-            customer_id=fixture_customer.id,
-            initial_date=datetime.now(),
-            end_date=datetime.now(),
-            status='success',
-        )
-        session.add(model)
-        session.commit()
-
-        return model
-
     def test_report_should_create_record(
         self, app, fixture_request_history, fixture_category
     ):
@@ -55,3 +27,15 @@ class TestReportService:
         after_create = session.execute(query)
         after_create = after_create.scalar_one_or_none()
         assert after_create is not None
+
+    def test_get_report_should_return_result(self, app, fixture_report):
+        service = ReportService(session)
+        report = service.get_by_id(fixture_report.id)
+
+        assert report is not None
+
+    def test_get_report_should_return_raise_exception_due_not_found_resource(self, app):
+        service = ReportService(session)
+
+        with pytest.raises(ReportNotFoundException):
+            service.get_by_id("aslkdfalsjdf")

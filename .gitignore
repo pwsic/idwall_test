@@ -2,3 +2,4 @@
 /.idea
 data.db
 idwall.egg-info/
+celerybeat-schedule
