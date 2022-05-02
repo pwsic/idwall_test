@@ -14,6 +14,8 @@
 
 # Running worker
 
+# `docker-compose up`
+
 ### In new terminal type: `make run-worker`
 
 # Running cron
